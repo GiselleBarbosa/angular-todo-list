@@ -1,0 +1,23 @@
+<div style="margin-bottom: 3rem" ;>
+  <mat-slide-toggle [checked]="checked"> </mat-slide-toggle>
+</div>
+
+<div style="display: flex">
+  <button
+    style="margin-right: 1rem"
+    mat-flat-button
+    color="primary"
+    (click)="decreaseValue()"
+  >
+    -
+  </button>
+  <p style="font-size: 1rem; font-weight: bold">{{ value }}</p>
+  <button
+    style="margin-left: 1rem"
+    mat-flat-button
+    color="primary"
+    (click)="increaseValue()"
+  >
+    +
+  </button>
+</div>

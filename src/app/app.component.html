@@ -1,1 +1,12 @@
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<h1>NgOnChanges()</h1>
+
+<button mat-flat-button color="primary" (click)="toggle()">
+ Change toggle
+</button>
+
+<app-toggle
+  [checked]="value"
+  [value]="number"
+  (counterIncreaseEvent)="increaseValue()"
+  (counterDecreaseEvent)="decreaseValue()"
+></app-toggle>
