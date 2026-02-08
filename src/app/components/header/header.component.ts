@@ -5,7 +5,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 
-const MAT_IMPORTS = [
+const MATERIAL_IMPORTS = [
   MatButtonModule,
   MatDividerModule,
   MatIconModule,
@@ -14,10 +14,9 @@ const MAT_IMPORTS = [
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [CommonModule, ...MAT_IMPORTS],
   templateUrl: './header.component.html',
-  styleUrls: [],
+  imports: [CommonModule, MATERIAL_IMPORTS],
+  standalone: true,
 })
 export class HeaderComponent {
   handleOpenModal() {

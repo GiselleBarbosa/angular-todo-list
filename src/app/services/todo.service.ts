@@ -5,7 +5,7 @@ import { TodoKeyLocalStorage } from '../models/enum/todoKeyLocalStorage';
 @Injectable({
   providedIn: 'root',
 })
-export class TodoSignals {
+export class TodoSignalsService {
   public todosState = signal<TodoDTO[]>([]);
 
   public updateTodos(todo: TodoDTO): void {
@@ -30,5 +30,10 @@ export class TodoSignals {
     if (!stored) return;
 
     this.todosState.set(JSON.parse(stored));
+  }
+
+  public generateId(): number {
+    const todos = this.todosState();
+    return todos.length ? Math.max(...todos.map((t) => t.id)) + 1 : 1;
   }
 }
