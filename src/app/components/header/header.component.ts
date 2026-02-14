@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { TodoForm } from '../todo-form/todo-form.component';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 const MATERIAL_IMPORTS = [
   MatButtonModule,
@@ -23,7 +23,7 @@ export class HeaderComponent {
   private dialogService = inject(MatDialog);
 
   handleOpenModal() {
-    this.dialogService.open(TodoForm, {
+    this.dialogService.open(TodoFormComponent, {
       width: '50vw',
       maxHeight: '80vh',
     });

@@ -1,0 +1,8 @@
+<mat-tab-group color="accent" *ngIf="todoList().length > 0; else noTasks">
+  <mat-tab label="Em andamento"></mat-tab>
+  <mat-tab label="Concluídas"></mat-tab>
+</mat-tab-group>
+
+<ng-template #noTasks>
+  <h3 class="warn_message">Não existem tarefas a serem exibidas</h3>
+</ng-template>

@@ -9,13 +9,9 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { TodoSignalsService } from '../../services/todo.service';
-import {
-  MatDialog,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
@@ -32,11 +28,11 @@ import { HeaderComponent } from '../header/header.component';
     MatDialogModule,
   ],
 })
-export class TodoForm {
+export class TodoFormComponent {
   private todosService = inject(TodoSignalsService);
   private dialogRefService = inject(MatDialogRef<HeaderComponent>);
 
-  public todoList = this.todosService.todosState();
+  public todoList = this.todosService.todosState;
 
   public todoForm = new FormGroup({
     title: new FormControl<string>('', {
