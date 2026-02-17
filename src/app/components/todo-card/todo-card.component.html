@@ -1,26 +1,27 @@
 <mat-tab-group color="accent" *ngIf="todoList().length > 0; else noTasks">
   <mat-tab label="Em andamento">
-    <div *ngFor="let todo of todoList()">
-      <mat-card class="todo_card" *ngIf="todo.done === false">
+    <ng-container *ngIf="pendingTodos().length > 0; else noPending">
+      <mat-card class="todo_card" *ngFor="let todo of pendingTodos()">
         <mat-card-header>
           <mat-card-title class="todo_card_title">
             {{ todo.title }}
           </mat-card-title>
+
           <mat-card-subtitle class="todo_card_subtitle">
             {{ todo.description }}
           </mat-card-subtitle>
         </mat-card-header>
+
         <mat-card-actions align="end">
           <button
-            class="header_btn check_btn"
             mat-icon-button
             aria-label="Concluir Tarefa"
             (click)="handleDoneTodo(todo.id)"
           >
             <mat-icon>done_all</mat-icon>
           </button>
+
           <button
-            class="header_btn check_btn todo_form_delete_btn"
             mat-icon-button
             aria-label="Deletar Tarefa"
             (click)="handleDeleteTodo(todo)"
@@ -29,30 +30,32 @@
           </button>
         </mat-card-actions>
       </mat-card>
-    </div>
+    </ng-container>
   </mat-tab>
+
   <mat-tab label="Concluídas">
-    <div *ngFor="let todo of todoList()">
-      <mat-card class="todo_card" *ngIf="todo.done === true">
+    <ng-container *ngIf="completedTodos().length > 0; else noCompleted">
+      <mat-card class="todo_card" *ngFor="let todo of completedTodos()">
         <mat-card-header>
           <mat-card-title class="todo_card_title">
             {{ todo.title }}
           </mat-card-title>
+
           <mat-card-subtitle class="todo_card_subtitle">
             {{ todo.description }}
           </mat-card-subtitle>
         </mat-card-header>
+
         <mat-card-actions align="end">
           <button
-            class="header_btn check_btn"
             mat-icon-button
-            aria-label="Concluir Tarefa"
+            aria-label="Reabrir Tarefa"
             (click)="handleDoneTodo(todo.id)"
           >
-            <mat-icon>done_all</mat-icon>
+            <mat-icon>undo</mat-icon>
           </button>
+
           <button
-            class="header_btn check_btn todo_form_delete_btn"
             mat-icon-button
             aria-label="Deletar Tarefa"
             (click)="handleDeleteTodo(todo)"
@@ -61,10 +64,18 @@
           </button>
         </mat-card-actions>
       </mat-card>
-    </div>
+    </ng-container>
   </mat-tab>
 </mat-tab-group>
 
 <ng-template #noTasks>
-  <h3 class="warn_message">Não existem tarefas a serem exibidas</h3>
+  <h3 class="warn_message">Não existem tarefas cadastradas</h3>
+</ng-template>
+
+<ng-template #noPending>
+  <h3 class="warn_message">Não há tarefas em andamento</h3>
+</ng-template>
+
+<ng-template #noCompleted>
+  <h3 class="warn_message">Não há tarefas concluídas</h3>
 </ng-template>

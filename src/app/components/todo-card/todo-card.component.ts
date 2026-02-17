@@ -12,7 +12,14 @@ import { TodoSignalsService } from '../../services/todo.service';
   templateUrl: 'todo-card.component.html',
   styleUrl: './todo-card.component.scss',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIconModule, MatTabsModule, NgIf, NgFor],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTabsModule,
+    NgIf,
+    NgFor,
+  ],
 })
 export class TodoCardComponent {
   private todosService = inject(TodoSignalsService);
@@ -30,4 +37,12 @@ export class TodoCardComponent {
   public handleDeleteTodo(todo: TodoDTO): void {
     this.todoSignal.update((todos) => todos.filter((t) => t.id !== todo.id));
   }
+
+  public pendingTodos = computed(() =>
+    this.todoList().filter((todo) => !todo.done),
+  );
+
+  public completedTodos = computed(() =>
+    this.todoList().filter((todo) => todo.done),
+  );
 }
