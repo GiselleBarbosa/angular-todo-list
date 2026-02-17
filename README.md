@@ -2,7 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.15.
 
+## Deployment
+This project was [Deployment](https://angular-todo-list-rust.vercel.app/) in Vercel.
+
 ## Development server
+
+https://angular-todo-list-rust.vercel.app/
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
