@@ -16,7 +16,7 @@
           <button
             mat-icon-button
             aria-label="Concluir Tarefa"
-            (click)="handleDoneTodo(todo.id)"
+            (click)="handleToggleTodo(todo.id)"
           >
             <mat-icon>done_all</mat-icon>
           </button>
@@ -50,7 +50,7 @@
           <button
             mat-icon-button
             aria-label="Reabrir Tarefa"
-            (click)="handleDoneTodo(todo.id)"
+            (click)="handleToggleTodo(todo.id)"
           >
             <mat-icon>undo</mat-icon>
           </button>

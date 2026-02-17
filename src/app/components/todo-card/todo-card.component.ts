@@ -26,10 +26,10 @@ export class TodoCardComponent {
   private todoSignal = this.todosService.todosState;
   public todoList = computed(() => this.todoSignal());
 
-  public handleDoneTodo(todoId: number): void {
+  public handleToggleTodo(todoId: number): void {
     this.todoSignal.update((todos) =>
       todos.map((todo) =>
-        todo.id === todoId ? { ...todo, done: true } : todo,
+        todo.id === todoId ? { ...todo, done: !todo.done } : todo,
       ),
     );
   }
